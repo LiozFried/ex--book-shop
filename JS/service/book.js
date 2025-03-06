@@ -9,3 +9,8 @@ var gBooks = [
 function getBooks() {
     return gBooks
 }
+
+function removeBook(id) {
+    var bookIdx = gBooks.findIndex(book => book.id === id)
+    gBooks.splice(bookIdx, 1)
+}

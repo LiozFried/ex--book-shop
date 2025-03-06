@@ -24,3 +24,8 @@ function renderBooks() {
         `).join('')
     elBooksTable.innerHTML = strHtml    
 }
+
+function onRemoveBook(id) {
+    removeBook(id)
+    renderBooks()
+}
