@@ -15,7 +15,11 @@ function renderBooks() {
         <tr>
             <td>${book.title}</td>
             <td>${book.price}</td>
-            <td><button>Read</button><button>Update</button><button>Delete</button></td>
+            <td>
+            <button>Read</button> 
+            <button onclick="onUpdateBook('${book.id}')">Update</button> 
+            <button onclick="onRemoveBook('${book.id}')">Delete</button>
+            </td>
         </tr>
         `).join('')
     elBooksTable.innerHTML = strHtml    
