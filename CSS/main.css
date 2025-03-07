@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+h1 {
+    text-decoration-line: underline;
+    background-color: rgb(39, 145, 145);
+}
+
+table {
+    margin: 20px auto;
+    border: 1px solid rgb(63, 173, 209);
+}
+
+th {
+    background-color: rgb(146, 146, 146);
+    border: 1px solid gray;
+}
+
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+td {
+    border: 1px solid lightgray;
+}
+
+button {
+    border-radius: 15%;
+    cursor: pointer;
+}
+
+.books-table td button:nth-child(1) {
+    background-color: lightcoral;
+}
+
+.books-table td button:nth-child(2) {
+    background-color: lightseagreen;
+}
+
+.books-table td button:nth-child(3) {
+    background-color: lightgreen;
+}
