@@ -51,3 +51,11 @@ button {
 .books-table td button:nth-child(3) {
     background-color: lightgreen;
 }
+
+.modal {
+    background-color: whitesmoke;
+}
+
+.modal pre {
+    color: rgb(27, 107, 107);
+}

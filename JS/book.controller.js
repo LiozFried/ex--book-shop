@@ -48,9 +48,13 @@ function onDetailsBook(ev, id) {
 
     const elModal = document.querySelector('.modal')
     const elBookDetails = elModal.querySelector('pre')
+    const elBookImg = elModal.querySelector('img')
 
-    const book = getBookById(id)
-    elBookDetails.innerText = JSON.stringify(book, null, 4)
+    const imgUrl = getBookImgUrlById(id)
+    const book = getBookDetailsById(id)
+
+    elBookImg.src = imgUrl
+    elBookDetails.innerText = book
 
     elModal.showModal()
 }

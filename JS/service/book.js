@@ -31,6 +31,12 @@ function addBook(bookName, bookPrice){
     gBooks.push(book)
 }
 
-function getBookById (id) {
-    return gBooks.find(book => book.id === id)
+function getBookDetailsById (id) {
+    var book = gBooks.find(book => book.id === id)
+    return (`Book Name: ${book.title}\nPrice: ${book.price}\nId: ${book.id}`)
+}
+
+function getBookImgUrlById(id) {
+    var book = gBooks.find(book => book.id === id)
+    return book.imgUrl
 }
