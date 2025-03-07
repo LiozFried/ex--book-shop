@@ -22,7 +22,7 @@ function renderBooks() {
             </td>
         </tr>
         `).join('')
-    elBooksTable.innerHTML = strHtml    
+    elBooksTable.innerHTML = strHtml
 }
 
 function onRemoveBook(id) {
@@ -36,3 +36,6 @@ function onUpdateBook(id) {
     renderBooks()
 }
 
+function onAddBook() {
+    console.log('you will add a book')
+}
