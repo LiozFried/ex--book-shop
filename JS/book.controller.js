@@ -37,5 +37,8 @@ function onUpdateBook(id) {
 }
 
 function onAddBook() {
-    console.log('you will add a book')
+    var newBookName = prompt('What is the name of the new book?')
+    var newBookPrice = +prompt('What is the price of the new book?')
+    addBook(newBookName, newBookPrice)
+    renderBooks()
 }
