@@ -35,3 +35,4 @@ function onUpdateBook(id) {
     updateBook(id, newPrice)
     renderBooks()
 }
+
