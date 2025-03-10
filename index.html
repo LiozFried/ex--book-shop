@@ -16,6 +16,8 @@
     <main>
         <section class="main-actions">
             <button onclick="onAddBook()">Add book</button>
+            <input oninput="onSearchBook(this.value)" class="book-title" type="text" placeholder="Search book🔍">
+            <button onclick="onResetSearch()">Reset Search</button>
         </section>
 
         <table class="books-table">

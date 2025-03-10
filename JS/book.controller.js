@@ -62,3 +62,15 @@ function onDetailsBook(ev, id) {
 
     elModal.showModal()
 }
+
+function onSearchBook(searchValue) {
+    searchBook(searchValue)
+    renderBooks()
+}
+
+function onResetSearch() {
+    searchBook('')
+    renderBooks()
+
+    document.querySelector('.book-title').value = ''
+}

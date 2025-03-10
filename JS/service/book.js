@@ -1,5 +1,6 @@
 'use strict'
 
+var gFilterBy = ''
 var gBooks
 _createBooks()
 
@@ -17,7 +18,12 @@ function _createBooks() {
 }
 
 function getBooks() {
-    return gBooks
+    if (!gFilterBy) return gBooks
+
+    var books = gBooks.filter((book) =>
+        book.title.toLowerCase().includes(gFilterBy.toLowerCase())
+    )
+    return books
 }
 
 function removeBook(id) {
@@ -51,4 +57,8 @@ function getBookById(id) {
 
 function _saveBooks() {
     saveToLocalStorage('books', gBooks)
+}
+
+function searchBook(filterBy) {
+    gFilterBy = filterBy
 }
