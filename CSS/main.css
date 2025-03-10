@@ -59,3 +59,10 @@ button {
 .modal pre {
     color: rgb(27, 107, 107);
 }
+
+.modal-btn {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    border-radius: 50%;
+}

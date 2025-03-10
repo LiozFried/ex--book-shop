@@ -48,13 +48,17 @@ function onDetailsBook(ev, id) {
 
     const elModal = document.querySelector('.modal')
     const elBookDetails = elModal.querySelector('pre')
+    const elTitle = elBookDetails.querySelector('h3 span')
+    const elPrice = elBookDetails.querySelector('h4 span')
+    const elDescription = elBookDetails.querySelector('p span')
     const elBookImg = elModal.querySelector('img')
 
-    const imgUrl = getBookImgUrlById(id)
-    const book = getBookDetailsById(id)
+    const book = getBookById(id)
 
-    elBookImg.src = imgUrl
-    elBookDetails.innerText = book
+    elTitle.innerText = book.title
+    elPrice.innerText = book.price
+    elDescription.innerText = getRandomParagraph()
+    elBookImg.src = book.imgUrl
 
     elModal.showModal()
 }
