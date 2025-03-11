@@ -4,7 +4,11 @@
 
 body {
     text-align: center;
+    background-image: url("/img/books\ backgound.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: whitesmoke;
+    font-weight: bold;
 }
 
 h1 {
@@ -29,6 +33,7 @@ tr:nth-child(even) {
 
 td {
     border: 1px solid lightgray;
+    color: rgb(55, 58, 238);
 }
 
 td:nth-child(3) {
