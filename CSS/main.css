@@ -56,8 +56,41 @@ button {
     background-color: whitesmoke;
 }
 
+.modal p {
+    grid-area: p;
+    max-width: 90%;
+    white-space: normal;
+    margin: 0;
+}
+
 .modal pre {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr 2fr;
+
+    grid-template-areas: 
+           "h3  h3"
+           "img h4"
+           "img p"
+           "img p"
+    ;
+    
     color: rgb(27, 107, 107);
+    margin: 0;
+}
+
+.modal h3 {
+    grid-area: h3;
+    margin: 0;
+}
+
+.modal h4 {
+    grid-area: h4;
+    margin: 0;
+}
+
+.modal img {
+   grid-area: img;
 }
 
 .modal-btn {
