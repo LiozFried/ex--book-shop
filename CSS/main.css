@@ -66,3 +66,20 @@ button {
     left: 1px;
     border-radius: 50%;
 }
+
+.main-actions {
+    display: flex;
+}
+
+.main-actions button {
+    background-color: lightseagreen;
+}
+
+.main-actions button:first-of-type {
+    margin-inline-end: auto;
+}
+
+.main-actions button:last-of-type {
+    border-radius: 0;
+}
+
