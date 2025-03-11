@@ -28,12 +28,14 @@ function renderBooks() {
 function onRemoveBook(id) {
     removeBook(id)
     renderBooks()
+    openActionsModal('delete')
 }
 
 function onUpdateBook(id) {
     var newPrice = +prompt('What is the new price?')
     updateBook(id, newPrice)
     renderBooks()
+    openActionsModal('update')
 }
 
 function onAddBook() {
@@ -41,6 +43,7 @@ function onAddBook() {
     var newBookPrice = +prompt('What is the price of the new book?')
     addBook(newBookName, newBookPrice)
     renderBooks()
+    openActionsModal('add')
 }
 
 function onDetailsBook(ev, id) {
@@ -73,4 +76,20 @@ function onResetSearch() {
     renderBooks()
 
     document.querySelector('.book-title').value = ''
+}
+
+function openActionsModal(action) {
+    var modalText = ''
+    if (action === 'delete') modalText = 'Book has removed'
+    else if (action === 'update') modalText = 'Books price has changed'
+    else if (action === 'add') modalText = 'New book has added'
+    else return
+
+    const elActionModal = document.querySelector('.actions-modal')
+    elActionModal.innerText = modalText
+    elActionModal.style.display = 'block'
+
+    setTimeout(() =>
+        elActionModal.style.display = 'none'
+        , 2000)
 }
