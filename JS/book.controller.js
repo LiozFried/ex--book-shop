@@ -23,6 +23,15 @@ function renderBooks() {
         </tr>
         `).join('')
     elBooksTable.innerHTML = strHtml
+    renderStatistics()
+}
+
+function renderStatistics() {
+    var statistics = getStatistics()
+    const elStatistics = document.querySelector('footer')
+    elStatistics.querySelector('.expensive span').innerText = statistics.expensive
+    elStatistics.querySelector('.average span').innerText = statistics.average
+    elStatistics.querySelector('.cheap span').innerText = statistics.cheap
 }
 
 function onRemoveBook(id) {

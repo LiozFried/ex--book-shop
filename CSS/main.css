@@ -133,3 +133,12 @@ button {
     border: 0.5px solid black;
     background-color: rgb(221, 121, 27);
 }
+
+footer {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0.5rem;
+    text-decoration-line: underline;
+    background-color: rgb(39, 145, 145);
+}

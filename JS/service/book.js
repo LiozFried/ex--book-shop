@@ -62,3 +62,12 @@ function _saveBooks() {
 function searchBook(filterBy) {
     gFilterBy = filterBy
 }
+
+function getStatistics() {
+    return gBooks.reduce((acc, book) => {
+        if (book.price < 80) acc.cheap++
+        else if (book.price >= 80 && book.price < 200) acc.average++
+        else acc.expensive++
+        return acc
+    }, { cheap: 0, average: 0, expensive: 0 })
+}
