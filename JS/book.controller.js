@@ -33,6 +33,7 @@ function onRemoveBook(id) {
 
 function onUpdateBook(id) {
     var newPrice = +prompt('What is the new price?')
+    if (isNaN(newPrice)) return
     updateBook(id, newPrice)
     renderBooks()
     openActionsModal('update')
@@ -41,6 +42,7 @@ function onUpdateBook(id) {
 function onAddBook() {
     var newBookName = prompt('What is the name of the new book?')
     var newBookPrice = +prompt('What is the price of the new book?')
+    if(isNaN(newBookPrice) || !newBookName) return
     addBook(newBookName, newBookPrice)
     renderBooks()
     openActionsModal('add')
