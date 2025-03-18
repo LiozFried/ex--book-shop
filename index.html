@@ -31,7 +31,12 @@
                     <h4 class="price">Price: <span></span></h4>
                     <p>Description: <span></span></p>
                     <img src="" alt="book img">
-                    <h4 class="rating">Rating: <span></span></h4>
+                    <div class="rating">
+                        <span>Rating:</span>
+                        <button onclick="onUpdateRating(event, 1)">+</button>
+                        <span class="rate"></span>
+                        <button onclick="onUpdateRating(event, -1)">-</button>
+                    </div>
                 </pre>
                 <button class="modal-btn">x</button>
             </form>

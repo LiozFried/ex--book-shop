@@ -52,7 +52,7 @@ function onUpdateBook(id) {
 function onAddBook() {
     var newBookName = prompt('What is the name of the new book?')
     var newBookPrice = +prompt('What is the price of the new book?')
-    if(isNaN(newBookPrice) || !newBookName) return
+    if (isNaN(newBookPrice) || !newBookName) return
     addBook(newBookName, newBookPrice)
     renderBooks()
     openActionsModal('add')
@@ -64,9 +64,10 @@ function onDetailsBook(ev, id) {
     const elModal = document.querySelector('.modal')
     const elBookDetails = elModal.querySelector('pre')
     const elTitle = elBookDetails.querySelector('h3 span')
-    const elPrice = elBookDetails.querySelector('h4 span')
+    const elPrice = elBookDetails.querySelector('.price span')
     const elDescription = elBookDetails.querySelector('p span')
     const elBookImg = elModal.querySelector('img')
+    const elRating = elBookDetails.querySelector('.rate')
 
     const book = getBookById(id)
 
@@ -74,8 +75,22 @@ function onDetailsBook(ev, id) {
     elPrice.innerText = book.price
     elDescription.innerText = getRandomParagraph()
     elBookImg.src = book.imgUrl
+    elRating.innerText = book.rating
+
+    elModal.dataset.bookId = id
 
     elModal.showModal()
+}
+
+function onUpdateRating(ev, diff) {
+    ev.preventDefault()
+    
+    const elModal = document.querySelector('.modal')
+    const bookId = elModal.dataset.bookId
+    const book = updateRating(bookId, +diff)
+
+    elModal.querySelector('.rate').innerText = book.rating
+    renderBooks()
 }
 
 function onSearchBook(searchValue) {

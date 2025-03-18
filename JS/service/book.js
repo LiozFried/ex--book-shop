@@ -62,6 +62,18 @@ function getBookById(id) {
     return book
 }
 
+function updateRating(bookId, diff) {
+    const book = getBookById(bookId)
+    const newRating = book.rating + diff
+
+    if (newRating > 0 && newRating <= 5) {
+        book.rating = newRating
+        _saveBooks()
+    }
+
+    return book
+}
+
 function _saveBooks() {
     saveToLocalStorage('books', gBooks)
 }

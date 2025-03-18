@@ -102,9 +102,26 @@ button {
 
 .modal .rating {
     grid-area: rating;
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding: 0.5rem;
+    background-color: aquamarine;
+    border: 1px solid black;
+    color: rgb(2, 2, 141);
 }
 
-h3 span, .price span, p span, .rating span {
+.rating button {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: lightseagreen;
+}
+
+.rate {
+    font-size: large;
+}
+
+h3 span, .price span, p span, .rate {
     color: black; 
 }
 
