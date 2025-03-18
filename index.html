@@ -16,8 +16,25 @@
     <main>
         <section class="main-actions">
             <button onclick="onAddBook()">Add book</button>
-            <input oninput="onSearchBook(this.value)" class="book-title" type="text" placeholder="Search book🔍">
-            <button onclick="onResetSearch()">Reset Search</button>
+            <button onclick="onResetFilter()">Reset filters</button>
+        </section>
+
+        <section class="book-filters">
+            <form>
+                <label> Search by title
+                    <input oninput="onSetFilterBy()" class="book-title" type="text" placeholder="Search book🔍">
+                </label>
+                <label>
+                    <span>Min Rating:</span>
+                    <select class="min-rating" onchange="onSetFilterBy()">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </label>
+            </form>
         </section>
 
         <table class="books-table">

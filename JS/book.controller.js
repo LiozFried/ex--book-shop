@@ -24,11 +24,11 @@ function renderBooks() {
         </tr>
         `).join('')
     elBooksTable.innerHTML = strHtml
-    renderStatistics()
+    renderStatistics(books)
 }
 
-function renderStatistics() {
-    var statistics = getStatistics()
+function renderStatistics(books) {
+    var statistics = getStatistics(books)
     const elStatistics = document.querySelector('footer')
     elStatistics.querySelector('.expensive span').innerText = statistics.expensive
     elStatistics.querySelector('.average span').innerText = statistics.average
@@ -93,8 +93,11 @@ function onUpdateRating(ev, diff) {
     renderBooks()
 }
 
-function onSearchBook(searchValue) {
-    searchBook(searchValue)
+function onSetFilterBy() {
+    const title = document.querySelector('.book-title').value
+    const minRating = document.querySelector('.min-rating').value
+
+    setFilterBy(title, minRating)
     renderBooks()
 }
 

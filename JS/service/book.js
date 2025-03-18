@@ -2,6 +2,13 @@
 
 var gFilterBy = ''
 var gBooks
+
+var gQueryOptions = {
+    filterBy: { title: '', minRating: 1},
+    sortBy: { sortField: '', sortDir: 0},
+    page: { idx: 0, size: 5},
+}
+
 _createBooks()
 
 function _createBooks() {
@@ -25,11 +32,10 @@ function _createBooks() {
 }
 
 function getBooks() {
-    if (!gFilterBy) return gBooks
+    const { filterBy, sortBy, page } = gQueryOptions
 
-    var books = gBooks.filter((book) =>
-        book.title.toLowerCase().includes(gFilterBy.toLowerCase())
-    )
+    var books = gBooks.filter(book => book.title.toLowerCase().includes(filterBy.title.toLowerCase()))
+    books = books.filter(book => book.rating >= filterBy.minRating)
     return books
 }
 
@@ -78,12 +84,12 @@ function _saveBooks() {
     saveToLocalStorage('books', gBooks)
 }
 
-function searchBook(filterBy) {
-    gFilterBy = filterBy
+function setFilterBy(title, minRating) {
+    gQueryOptions.filterBy = { title, minRating: +minRating }
 }
 
-function getStatistics() {
-    return gBooks.reduce((acc, book) => {
+function getStatistics(books) {
+    return books.reduce((acc, book) => {
         if (book.price < 80) acc.cheap++
         else if (book.price >= 80 && book.price < 200) acc.average++
         else acc.expensive++
