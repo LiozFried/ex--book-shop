@@ -162,6 +162,9 @@ h3 span, .price span, p span, .rate {
 }
 
 footer {
+    position: sticky;
+    bottom: 1vh;
+    
     display: flex;
     justify-content: space-between;
 
