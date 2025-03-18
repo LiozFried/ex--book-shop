@@ -101,11 +101,12 @@ function onSetFilterBy() {
     renderBooks()
 }
 
-function onResetSearch() {
-    searchBook('')
+function onResetFilter() {
+    resetFilter()
     renderBooks()
 
     document.querySelector('.book-title').value = ''
+    document.querySelector('.min-rating').value = 1
 }
 
 function openActionsModal(action) {

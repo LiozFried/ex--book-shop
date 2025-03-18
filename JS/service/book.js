@@ -56,7 +56,8 @@ function addBook(bookName, bookPrice) {
         id: makeId(),
         title: bookName,
         price: bookPrice,
-        imgUrl: ''
+        imgUrl: '',
+        rating: getRandomInt(1, 6)
     }
 
     gBooks.push(book)
@@ -86,6 +87,10 @@ function _saveBooks() {
 
 function setFilterBy(title, minRating) {
     gQueryOptions.filterBy = { title, minRating: +minRating }
+}
+
+function resetFilter() {
+    gQueryOptions.filterBy = { title: '', minRating: 1}
 }
 
 function getStatistics(books) {
