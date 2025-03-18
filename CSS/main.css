@@ -168,3 +168,11 @@ footer {
     text-decoration-line: underline;
     background-color: rgb(39, 145, 145);
 }
+
+.sort {
+    cursor: pointer;
+}
+
+.active {
+    color: white;
+}

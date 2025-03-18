@@ -4,9 +4,9 @@ var gFilterBy = ''
 var gBooks
 
 var gQueryOptions = {
-    filterBy: { title: '', minRating: 1},
-    sortBy: { sortField: '', sortDir: 0},
-    page: { idx: 0, size: 5},
+    filterBy: { title: '', minRating: 1 },
+    sortBy: { sortField: '', sortDir: 0 },
+    page: { idx: 0, size: 5 },
 }
 
 _createBooks()
@@ -36,6 +36,16 @@ function getBooks() {
 
     var books = gBooks.filter(book => book.title.toLowerCase().includes(filterBy.title.toLowerCase()))
     books = books.filter(book => book.rating >= filterBy.minRating)
+
+    if (sortBy.sortField) {
+        books.sort((a, b) => {
+            if (a[sortBy.sortField] > b[sortBy.sortField]) return sortBy.sortDir
+            if (a[sortBy.sortField] < b[sortBy.sortField]) return -sortBy.sortDir
+            return 0
+    })
+        
+    }
+
     return books
 }
 
@@ -90,7 +100,11 @@ function setFilterBy(title, minRating) {
 }
 
 function resetFilter() {
-    gQueryOptions.filterBy = { title: '', minRating: 1}
+    gQueryOptions.filterBy = { title: '', minRating: 1 }
+}
+
+function setSortBy(sorter, direction) {
+    gQueryOptions.sortBy = { sortField: sorter, sortDir: direction }
 }
 
 function getStatistics(books) {

@@ -37,7 +37,31 @@
             </form>
         </section>
 
-        <table class="books-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <span>Title</span>
+                        <span class="sort title-asn" onclick="onSort(this, 'title', 1)">↓</span>
+                        <span class="sort title-dsn" onclick="onSort(this, 'title', -1)">↑</span>
+                    </th>
+                    <th>
+                        <span>Price</span>
+                        <span class="sort price-asn" onclick="onSort(this, 'price', 1)">↓</span>
+                        <span class="sort price-dsn" onclick="onSort(this, 'price', -1)">↑</span>
+                    </th>
+                    <th>
+                        <span>Rating</span>
+                        <span class="sort rating-asn" onclick="onSort(this, 'rating', 1)">↓</span>
+                        <span class="sort rating-dsn" onclick="onSort(this, 'rating', -1)">↑</span>
+                    </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody class="books-table">
+
+            </tbody>
 
         </table>
 

@@ -8,8 +8,7 @@ function onInit() {
 
 function renderBooks() {
     const elBooksTable = document.querySelector('.books-table')
-    var strHtml = '<thead> <tr> <th>Title</th> <th>Price</th> <th>Rating</th> <th>Action</th> </tr> </thead> '
-
+    var strHtml = ''
     const books = getBooks()
     strHtml += books.map(book => `
         <tr>
@@ -84,7 +83,7 @@ function onDetailsBook(ev, id) {
 
 function onUpdateRating(ev, diff) {
     ev.preventDefault()
-    
+
     const elModal = document.querySelector('.modal')
     const bookId = elModal.dataset.bookId
     const book = updateRating(bookId, +diff)
@@ -107,6 +106,15 @@ function onResetFilter() {
 
     document.querySelector('.book-title').value = ''
     document.querySelector('.min-rating').value = 1
+}
+
+function onSort(elBtn, sorter, direction) {
+    const elBtns = document.querySelectorAll('.sort')
+    elBtns.forEach(btn => btn.classList.remove('active'))
+    elBtn.classList.add('active')
+
+    setSortBy(sorter, direction)
+    renderBooks()
 }
 
 function openActionsModal(action) {
