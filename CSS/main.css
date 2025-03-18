@@ -32,13 +32,14 @@ tr:nth-child(even) {
     background-color: lightgray;
 }
 
+tr:nth-child(odd) {
+    background-color: rgb(182, 166, 166);
+}
+
 td {
     border: 1px solid lightgray;
     color: rgb(55, 58, 238);
-}
-
-td:nth-child(3) {
-    width: 50%;
+    padding: 1rem;
 }
 
 button {
@@ -71,17 +72,16 @@ button {
 
 .modal pre {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 2fr 2fr 1fr;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 40px 40px 40px;
 
-    grid-template-areas: 
-           "h3  h3  h3"
-           "img img price"
-           "img img p"
-           "img img p"
-           "img img rating"
+    grid-template-areas:
+        "h3  h3"
+        "img price"
+        "img p"
+        "img rating"
     ;
-    
+
     color: rgb(27, 107, 107);
     margin: 0;
 }
@@ -97,8 +97,8 @@ button {
 }
 
 .modal img {
-   grid-area: img;
-   margin: auto;
+    grid-area: img;
+    margin: auto;
 }
 
 .modal .rating {
@@ -122,8 +122,11 @@ button {
     font-size: large;
 }
 
-h3 span, .price span, p span, .rate {
-    color: black; 
+h3 span,
+.price span,
+p span,
+.rate {
+    color: black;
 }
 
 .modal-btn {
