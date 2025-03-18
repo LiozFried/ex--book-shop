@@ -42,9 +42,11 @@ function getBooks() {
             if (a[sortBy.sortField] > b[sortBy.sortField]) return sortBy.sortDir
             if (a[sortBy.sortField] < b[sortBy.sortField]) return -sortBy.sortDir
             return 0
-    })
-        
+        })
     }
+
+    const startIdx = page.idx * page.size
+    books = books.slice(startIdx, startIdx + page.size)
 
     return books
 }
@@ -105,6 +107,14 @@ function resetFilter() {
 
 function setSortBy(sorter, direction) {
     gQueryOptions.sortBy = { sortField: sorter, sortDir: direction }
+}
+
+function setPage(diff) {
+    const maxPage = Math.ceil(gBooks.length / gQueryOptions.page.size) - 1
+
+    if (gQueryOptions.page.idx + diff < 0) return gQueryOptions.page.idx = maxPage
+    if (gQueryOptions.page.idx + diff > maxPage) return gQueryOptions.page.idx = 0
+    gQueryOptions.page.idx += diff
 }
 
 function getStatistics(books) {

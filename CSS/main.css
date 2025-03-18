@@ -19,6 +19,7 @@ h1 {
 table {
     width: 90vw;
     margin: 20px auto;
+    margin-bottom: 0;
     border: 1px solid rgb(63, 173, 209);
 }
 
@@ -175,4 +176,8 @@ footer {
 
 .active {
     color: white;
+}
+
+.pagination button {
+    background-color: lightseagreen;
 }

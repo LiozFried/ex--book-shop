@@ -117,6 +117,11 @@ function onSort(elBtn, sorter, direction) {
     renderBooks()
 }
 
+function onMovePage(diff) {
+    setPage(diff)
+    renderBooks()
+}
+
 function openActionsModal(action) {
     var modalText = ''
     if (action === 'delete') modalText = 'Book has removed'
