@@ -70,14 +70,15 @@ button {
 
 .modal pre {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 2fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr 2fr 1fr;
 
     grid-template-areas: 
-           "h3  h3"
-           "img h4"
-           "img p"
-           "img p"
+           "h3  h3  h3"
+           "img img price"
+           "img img p"
+           "img img p"
+           "img img rating"
     ;
     
     color: rgb(27, 107, 107);
@@ -89,13 +90,22 @@ button {
     margin: 0;
 }
 
-.modal h4 {
-    grid-area: h4;
+.modal .price {
+    grid-area: price;
     margin: 0;
 }
 
 .modal img {
    grid-area: img;
+   margin: auto;
+}
+
+.modal .rating {
+    grid-area: rating;
+}
+
+h3 span, .price span, p span, .rating span {
+    color: black; 
 }
 
 .modal-btn {
