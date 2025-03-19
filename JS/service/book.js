@@ -125,3 +125,7 @@ function getStatistics(books) {
         return acc
     }, { cheap: 0, average: 0, expensive: 0 })
 }
+
+function getQueryOptions() {
+    return gQueryOptions
+}

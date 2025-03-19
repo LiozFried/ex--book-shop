@@ -3,6 +3,7 @@
 onInit()
 
 function onInit() {
+    readQueryParams()
     renderBooks()
 }
 
@@ -24,6 +25,7 @@ function renderBooks() {
         `).join('')
     elBooksTable.innerHTML = strHtml
     renderStatistics(books)
+    setQueryParams()
 }
 
 function renderStatistics(books) {
@@ -77,6 +79,8 @@ function onDetailsBook(ev, id) {
     elRating.innerText = book.rating
 
     elModal.dataset.bookId = id
+
+    setQueryParams(id)
 
     elModal.showModal()
 }
@@ -136,4 +140,58 @@ function openActionsModal(action) {
     setTimeout(() =>
         elActionModal.style.display = 'none'
         , 2000)
+}
+
+function setQueryParams(bookId = null) {
+    const queryParams = new URLSearchParams()
+    const { filterBy, sortBy, page } = getQueryOptions()
+
+    if (bookId) queryParams.set('bookId', bookId)
+
+    queryParams.set('title', filterBy.title)
+    queryParams.set('rating', filterBy.minRating)
+
+    if (gQueryOptions.sortBy.sortField) {
+        queryParams.set('sortField', sortBy.sortField)
+        queryParams.set('sortDir', sortBy.sortDir)
+    }
+
+    const newUrl = window.location.protocol + '//' + window.location.host + window.location.pathname + '?' + queryParams.toString()
+    window.history.pushState({ path: newUrl }, '', newUrl)
+}
+
+function readQueryParams() {
+    const queryParams = new URLSearchParams(window.location.search)
+
+    const bookId = queryParams.get('bookId')
+    if (bookId) onDetailsBook(bookId)
+
+    const title = queryParams.get('title') || ''
+    const rating = +queryParams.get('rating') || 1
+
+    setFilterBy(title, rating)
+
+    if (queryParams.get('sortField')) {
+        const sorter = queryParams.get('sortField')
+        const direction = +queryParams.get('sortDir')
+        setSortBy(sorter, direction)
+    }
+
+    if (queryParams.get('pageIdx')) {
+        const page = +queryParams.get('pageIdx')
+    }
+
+    renderQueryParams()
+}
+
+function renderQueryParams() {
+    const { filterBy, sortBy, page } = getQueryOptions()
+
+    document.querySelector('.book-title').value = filterBy.title
+    document.querySelector('.min-rating').value = filterBy.minRating
+
+    if (sortBy.sortField) {
+        const elBtn = document.querySelector(`.${sortBy.sortField}-${sortBy.sortDir === 1 ? 'asn' : 'dsn'}`)
+        elBtn.classList.add('active')
+    }
 }
